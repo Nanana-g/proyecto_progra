@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>°☆ Sip & Joy café ★ ☕️✨️ - Sistema de reservas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>♨ Sip & Joy café ♨</h1>
+            <p>Sistema de Reservas</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li><a onclick="mostrarSeccion('menu')">Menú</a></li>
+                <li><a onclick="mostrarSeccion('nueva-reserva')">Nueva reserva</a></li>
+                <li><a onclick="mostrarSeccion('ver-reservas')">Reservas actuales</a></li>
+                <li><a onclick="mostrarSeccion('contacto')">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="inicio" class="seccion activa">
+            <h2>👋Bienvenidos a Sip & Joy café</h2>
+            <div class="welcome-content">
+                <div class="cafe-info">
+                    <div class="welcome-text">
+                        <p>Disfruta de nuestros cafés artesanales y postres caseros en este cozy ambiente</p>
+                        <p>Nuestro nuevo sistema de reservas te permite:</p>
+                        <ul>
+                            <li>☘︎ ݁˖ Hacer reservas</li>
+                            <li>☘︎ ݁˖ Ver todas tus reservas</li>
+                            <li>☘︎ ݁˖ Modificar reservas existentes</li>
+                            <li>☘︎ ݁˖ Cancelar reservas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="seccion">
+            <h2>⋆｡‧˚ʚ Nuestro Menú ɞ˚‧｡⋆</h2>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3>‧⁺˚*☕ Cafés Especiales ☕*˚⁺‧</h3>
+                    <div class="menu-items">
+                        <p><strong>Espresso⸝♡</strong> - $2.50</p>
+                        <p><strong>Americano⸝♡</strong> - $3.00</p>
+                        <p><strong>Cappuccino⸝♡</strong> - $3.50</p>
+                        <p><strong>Latte⸝♡</strong> - $4.00</p>
+                        <p><strong>Mocha⸝♡</strong> - $4.50</p>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <h3>🍰 Postres Caseros</h3>
+                    <div class="menu-items">
+                        <p><strong>Cheesecake (fresa, limón o berrymix)⸝♡</strong> - $4.00</p>
+                        <p><strong>Tiramisu⸝♡</strong> - $4.50</p>
+                        <p><strong>Brownie⸝♡</strong> - $3.50</p>
+                        <p><strong>Pedacito de cielo⸝♡</strong> - $2.50</p>
+                        <p><strong>Queque de chocolate⸝♡</strong> - $3.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nueva-reserva" class="seccion">
+            <h2>⋆˚࿔ Nueva Reserva 𝜗𝜚˚⋆</h2>
+            <div class="form-container">
+                <form id="reservationForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo ❀࿐</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono ❀࿐</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email ❀࿐</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha ❀࿐</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hora">Hora ❀࿐</label>
+                        <select id="hora" name="hora" required>
+                            <option value="">Seleccione una hora:</option>
+                            <option value="08:00">8:00 am</option>
+                            <option value="09:00">9:00 am</option>
+                            <option value="10:00">10:00 am</option>
+                            <option value="11:00">11:00 am</option>
+                            <option value="12:00">12:00 pm</option>
+                            <option value="13:00">1:00 pm</option>
+                            <option value="14:00">2:00 pm</option>
+                            <option value="15:00">3:00 pm</option>
+                            <option value="16:00">4:00 pm</option>
+                            <option value="17:00">5:00 pm</option>
+                            <option value="18:00">6:00 pm</option>
+                            <option value="19:00">7:00 pm</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personas">Cantidad de personas ❀࿐</label>
+                        <select id="personas" name="personas" required>
+                            <option value="">Selecciona</option>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                            <option value="6">6 personas</option>
+                            <option value="8">Más de 6 personas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comentarios">Comentarios especiales ❀࿐</label>
+                        <textarea id="comentarios" name="comentarios" rows="3" placeholder="Alergias, ocasión especial, preferencias de mesa, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Crear reserva</button>
+                </form>
+                <div id="mensaje" class="mensaje" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="ver-reservas" class="seccion">
+            <h2>˚₊‧꒰ა Gestión de reservas ໒꒱ ‧₊˚</h2>
+
+            <div class="search-container">
+                <div class="search-form">
+                    <input type="email" id="buscarEmail" placeholder="Buscar por email">
+                    <button onclick="buscarReservas()" class="btn-secondary">Buscar</button>
+                    <button onclick="cargarTodasReservas()" class="btn-secondary">Ver Todas</button>
+                </div>
+            </div>
+
+            <div id="reservas-container">
+                <table id="tablaReservas" class="reservas-tabla" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Personas</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservasBody">
+                    </tbody>
+                </table>
+
+                <div id="noReservas" class="no-reservas" style="display: none;">
+                    <p>No se encontraron reservas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="seccion">
+            <h2>⁺‧₊☎️ Información de contacto ☎️₊‧⁺</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Dirección</h3>
+                    <p>Calle de San Benito<br>San José</p>
+                </div>
+                <div class="contact-item">
+                    <h3>₊˚✧📞 Teléfono</h3>
+                    <p>(506) 1234-5678</p>
+                </div>
+                <div class="contact-item">
+                    <h3>₊⊹📧 Email</h3>
+                    <p>contacto@sipandjoy.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>୭˚.ᵎᵎ Horarios</h3>
+                    <p>Lunes a viernes: 7:00 am - 8:00 pm<br>
+                    Sábados y domingos: 8:00 am - 9:00 pm</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalEditar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h3>Editar reserva ✎ᝰ.ᐟ⋆</h3>
+            <form id="editarForm">
+                <input type="hidden" id="editarId">
+
+                <div class="form-group">
+                    <label for="editarNombre">❀Nombre completo</label>
+                    <input type="text" id="editarNombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editarTelefono">❀Teléfono</label>
+                    <input type="tel" id="editarTelefono" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editarEmail">❀Email</label>
+                    <input type="email" id="editarEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editarFecha">❀Fecha</label>
+                    <input type="date" id="editarFecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editarHora">❀Hora</label>
+                    <select id="editarHora" required>
+                        <option value="08:00">8:00 am</option>
+                        <option value="09:00">9:00 am</option>
+                        <option value="10:00">10:00 am</option>
+                        <option value="11:00">11:00 am</option>
+                        <option value="12:00">12:00 pm</option>
+                        <option value="13:00">1:00 pm</option>
+                        <option value="14:00">2:00 pm</option>
+                        <option value="15:00">3:00 pm</option>
+                        <option value="16:00">4:00 pm</option>
+                        <option value="17:00">5:00 pm</option>
+                        <option value="18:00">6:00 pm</option>
+                        <option value="19:00">7:00 pm</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editarPersonas">Personas</label>
+                    <select id="editarPersonas" required>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="6">6 personas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editarComentarios">❀Comentarios</label>
+                    <textarea id="editarComentarios" rows="3"></textarea>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-primary">❀Guardar cambios</button>
+                    <button type="button" onclick="cerrarModal()" class="btn-secondary">❀Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sip & Joy café. Sistema de Reservas - Proyecto</p>
+        </div>
+    </footer>
+
+    <script>
+        const API_URL = "http://localhost:8000/reservas";
+
+        function mostrarSeccion(seccionId) {
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(seccion => {
+                seccion.classList.remove('activa');
+            });
+            document.getElementById(seccionId).classList.add('activa');
+        }
+
+        document.getElementById("reservationForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const data = {
+                nombre: document.getElementById("nombre").value,
+                telefono: document.getElementById("telefono").value,
+                email: document.getElementById("email").value,
+                fecha: document.getElementById("fecha").value,
+                hora: document.getElementById("hora").value,
+                personas: parseInt(document.getElementById("personas").value),
+                comentarios: document.getElementById("comentarios").value
+            };
+
+            const res = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            mostrarMensaje(result.detail || "Reserva creada correctamente");
+            document.getElementById("reservationForm").reset();
+        });
+
+        async function buscarReservas() {
+            const email = document.getElementById("buscarEmail").value;
+            if (!email) {
+                mostrarMensaje("Por favor ingresa un email para buscar.");
+                return;
+            }
+
+            const res = await fetch(`${API_URL}?email=${encodeURIComponent(email)}`);
+            const reservas = await res.json();
+            mostrarReservasEnTabla(reservas);
+        }
+
+        async function cargarTodasReservas() {
+            const res = await fetch(API_URL);
+            const reservas = await res.json();
+            mostrarReservasEnTabla(reservas);
+        }
+
+        function mostrarReservasEnTabla(reservas) {
+            const tabla = document.getElementById("tablaReservas");
+            const tbody = document.getElementById("reservasBody");
+            const noReservas = document.getElementById("noReservas");
+
+            tbody.innerHTML = "";
+
+            if (reservas.length === 0) {
+                tabla.style.display = "none";
+                noReservas.style.display = "block";
+                return;
+            }
+
+            tabla.style.display = "table";
+            noReservas.style.display = "none";
+
+            reservas.forEach(reserva => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${reserva.id}</td>
+                    <td>${reserva.nombre}</td>
+                    <td>${reserva.email}</td>
+                    <td>${reserva.telefono}</td>
+                    <td>${reserva.fecha}</td>
+                    <td>${reserva.hora}</td>
+                    <td>${reserva.personas}</td>
+                    <td>
+                        <button class="btn-secondary" onclick="editarReserva(${reserva.id})">Editar</button>
+                        <button class="btn-secondary" onclick="eliminarReserva(${reserva.id})">Eliminar</button>
+                    </td>
+                `;
+            });
+        }
+
+        async function eliminarReserva(id) {
+            if (!confirm("¿Seguro que deseas eliminar esta reserva?")) return;
+
+            try {
+                const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+                if (res.ok) {
+                    mostrarMensaje("Reserva eliminada correctamente");
+                    cargarTodasReservas();
+                } else {
+                    mostrarMensaje("Error al eliminar la reserva");
+                }
+            } catch (error) {
+                mostrarMensaje("Error de conexión");
+            }
+        }
+
+        async function editarReserva(id) {
+            const res = await fetch(`${API_URL}/${id}`);
+            const reserva = await res.json();
+
+            document.getElementById("editarId").value = reserva.id;
+            document.getElementById("editarNombre").value = reserva.nombre;
+            document.getElementById("editarTelefono").value = reserva.telefono;
+            document.getElementById("editarEmail").value = reserva.email;
+            document.getElementById("editarFecha").value = reserva.fecha;
+            document.getElementById("editarHora").value = reserva.hora;
+            document.getElementById("editarPersonas").value = reserva.personas;
+            document.getElementById("editarComentarios").value = reserva.comentarios || "";
+
+            document.getElementById("modalEditar").style.display = "block";
+        }
+
+        document.getElementById("editarForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const id = document.getElementById("editarId").value;
+            const data = {
+                nombre: document.getElementById("editarNombre").value,
+                telefono: document.getElementById("editarTelefono").value,
+                email: document.getElementById("editarEmail").value,
+                fecha: document.getElementById("editarFecha").value,
+                hora: document.getElementById("editarHora").value,
+                personas: parseInt(document.getElementById("editarPersonas").value),
+                comentarios: document.getElementById("editarComentarios").value
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                if (res.ok) {
+                    mostrarMensaje("Reserva actualizada correctamente");
+                    cerrarModal();
+                    cargarTodasReservas();
+                } else {
+                    mostrarMensaje("Error al actualizar la reserva");
+                }
+            } catch (error) {
+                mostrarMensaje("Error de conexión");
+            }
+        });
+
+        function cerrarModal() {
+            document.getElementById("modalEditar").style.display = "none";
+        }
+
+        function mostrarMensaje(msg) {
+            const mensaje = document.getElementById("mensaje");
+            mensaje.textContent = msg;
+            mensaje.style.display = "block";
+            mensaje.style.backgroundColor = "#d4edda";
+            mensaje.style.color = "#155724";
+            mensaje.style.border = "1px solid #c3e6cb";
+            setTimeout(() => mensaje.style.display = "none", 4000);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("modalEditar");
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+</html>
