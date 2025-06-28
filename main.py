@@ -13,7 +13,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-DATABASE_URL = "mysql+pymysql://root:123Queso.@localhost/sip&joy"
+DATABASE_URL = "mysql+pymysql://root:123Queso.@localhost/sip%26joy"
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True, pool_recycle=300)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
